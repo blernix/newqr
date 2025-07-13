@@ -87,7 +87,7 @@ export function Carousel3D() {
 
   return (
     <div 
-      className="w-full h-96 flex items-center justify-center perspective-[1000px] cursor-grab active:cursor-grabbing"
+      className="w-full h-full flex items-center justify-center perspective-[1500px] cursor-grab active:cursor-grabbing"
       onMouseDown={handlePointerDown}
       onTouchStart={handlePointerDown}
       onMouseMove={handlePointerMove}
