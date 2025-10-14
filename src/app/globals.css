@@ -1,21 +1,19 @@
 @import "tailwindcss";
 
-/* On peut garder le body ici pour le fond noir */
+
+:root {
+  overflow-x: hidden;
+}
+
 body {
   background-color: #000;
   color: white;
-    /* Ajout : Forcer la hauteur à 100% de la vue de l'écran */
-   /* On force la taille à 100% de l'écran */
   width: 100%;
-  height: 100%;
-  
-  /* On retire toutes les marges et paddings par défaut */
+  min-height: 100vh;
   margin: 0;
   padding: 0;
-  
-  /* La commande la plus importante : on coupe tout ce qui dépasse */
-  overflow: hidden;
-
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 /* On garde nos animations ici */
@@ -35,11 +33,20 @@ body {
 	100% { transform: translate(0px, 0px) scale(1); }
 }
 
+@keyframes fadeIn {
+	0% { opacity: 0; transform: translateY(20px); }
+	100% { opacity: 1; transform: translateY(0); }
+}
+
 .animate-blob {
   animation: blob 8s infinite;
 }
 .animate-blob2 {
   animation: blob2 12s infinite;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out;
 }
 
 .animation-delay-2000 {
@@ -51,6 +58,3 @@ body {
 .animation-delay-6000 {
   animation-delay: -6s;
 }
-
-
- 

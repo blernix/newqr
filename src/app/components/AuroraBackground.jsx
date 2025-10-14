@@ -1,24 +1,24 @@
 export function AuroraBackground() {
   return (
-    <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden">
-      {/* Le flou général appliqué à tout l'arrière-plan */}
-      <div className="absolute inset-0 backdrop-blur-3xl"></div>
+    <div className="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+      {/* Overlay subtil pour adoucir le fond */}
+      <div className="absolute inset-0 bg-black/20"></div>
 
-      {/* Les nouvelles bulles de couleur monochromes */}
-      {/* Halo 1 : Un gris très sombre, presque noir */}
-      <div className="absolute w-56 h-56 md:w-96 md:h-96 bg-neutral-500 rounded-full -top-16 -left-16 filter blur-3xl animate-blob animation-delay-2000 opacity-70"></div>
-      
-      {/* Halo 2 : Un autre gris sombre pour la texture */}
-      <div className="absolute w-56 h-56 md:w-96 md:h-96 bg-slate-600 rounded-full -bottom-16 -right-16 filter blur-3xl animate-blob2 opacity-70"></div>
+      {/* Bulles de couleur subtiles et professionnelles */}
+      {/* Halo 1 : Bleu profond */}
+      <div className="absolute w-96 h-96 md:w-[600px] md:h-[600px] bg-blue-500/20 rounded-full -top-32 -left-32 filter blur-3xl animate-blob animation-delay-2000"></div>
 
-      {/* Halo 3 : Une "fumée" de blanc cassé très transparente */}
-      <div className="absolute w-48 h-48 md:w-72 md:h-72 bg-white/20 rounded-full top-1/4 left-1/4 filter blur-3xl animate-blob animation-delay-4000 opacity-60"></div>
-      
-      {/* Halo 4 : Une autre fumée blanche */}
-      <div className="absolute w-48 h-48 md:w-72 md:h-72 bg-white/50 rounded-full bottom-1/4 right-1/4 filter blur-3xl animate-blob2 animation-delay-6000 opacity-60"></div>
+      {/* Halo 2 : Violet profond */}
+      <div className="absolute w-96 h-96 md:w-[600px] md:h-[600px] bg-purple-500/20 rounded-full -bottom-32 -right-32 filter blur-3xl animate-blob2"></div>
 
-       {/* Halo 5 (plus petit) : Un gris pour la profondeur */}
-       <div className="absolute w-32 h-32 md:w-56 md:h-56 bg-zinc-900 rounded-full bottom-8 left-1/2 filter blur-2xl animate-blob opacity-50"></div>
+      {/* Halo 3 : Cyan subtil */}
+      <div className="absolute w-72 h-72 md:w-[500px] md:h-[500px] bg-cyan-500/15 rounded-full top-1/3 right-1/4 filter blur-3xl animate-blob animation-delay-4000"></div>
+
+      {/* Halo 4 : Rose subtil */}
+      <div className="absolute w-64 h-64 md:w-[450px] md:h-[450px] bg-pink-500/10 rounded-full bottom-1/3 left-1/3 filter blur-3xl animate-blob2 animation-delay-6000"></div>
+
+      {/* Grain texture pour effet premium */}
+      <div className="absolute inset-0 opacity-[0.02] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJhIj48ZmVUdXJidWxlbmNlIGJhc2VGcmVxdWVuY3k9Ii43NSIgc3RpdGNoVGlsZXM9InN0aXRjaCIgdHlwZT0iZnJhY3RhbE5vaXNlIi8+PGZlQ29sb3JNYXRyaXggdHlwZT0ic2F0dXJhdGUiIHZhbHVlcz0iMCIvPjwvZmlsdGVyPjxwYXRoIGQ9Ik0wIDBoMzAwdjMwMEgweiIgZmlsdGVyPSJ1cmwoI2EpIiBvcGFjaXR5PSIuMDUiLz48L3N2Zz4=')]"></div>
     </div>
   );
 }
