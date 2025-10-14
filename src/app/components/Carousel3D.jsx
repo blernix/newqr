@@ -2,6 +2,8 @@
 
 import { Briefcase, Instagram, Linkedin, Send, Bitcoin, Copy, Github, Mail } from 'lucide-react';
 import toast from 'react-hot-toast';
+import AddContactButton from './AddContactButton';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const professionalLinks = [
   {
@@ -64,6 +66,11 @@ const personalLinks = [
 ];
 
 export function Carousel3D() {
+  const [headerRef, headerVisible] = useScrollReveal({ threshold: 0.2 });
+  const [proLinksRef, proLinksVisible] = useScrollReveal({ threshold: 0.1 });
+  const [otherLinksRef, otherLinksVisible] = useScrollReveal({ threshold: 0.1 });
+  const [footerRef, footerVisible] = useScrollReveal({ threshold: 0.5 });
+
   const handleCopy = (address, title) => {
     navigator.clipboard.writeText(address).then(() => {
       toast.success(`Adresse ${title} copiée !`);
@@ -77,10 +84,13 @@ export function Carousel3D() {
 
   return (
     <div className="w-full min-h-screen flex items-center justify-center p-6">
-      <div className="w-full max-w-2xl mx-auto space-y-8 animate-fadeIn">
+      <div className="w-full max-w-2xl mx-auto space-y-8">
 
         {/* Header Profile */}
-        <div className="text-center space-y-4">
+        <div
+          ref={headerRef}
+          className={`text-center space-y-4 scroll-reveal-scale ${headerVisible ? 'is-visible' : ''}`}
+        >
           {/* Avatar avec effet glassmorphism */}
           <div className="relative inline-block group">
             <div className="w-28 h-28 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-purple-600 p-1 shadow-2xl ring-4 ring-white/20 transition-transform duration-300 group-hover:scale-105">
@@ -109,7 +119,11 @@ export function Carousel3D() {
         </div>
 
         {/* Liens Professionnels */}
-        <div className="space-y-3">
+        <div
+          ref={proLinksRef}
+          className={`space-y-3 scroll-reveal ${proLinksVisible ? 'is-visible' : ''}`}
+          style={{ animationDelay: '0.2s' }}
+        >
           <h2 className="text-sm font-semibold text-white/60 uppercase tracking-wider px-2">
             Professionnel
           </h2>
@@ -120,7 +134,8 @@ export function Carousel3D() {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative overflow-hidden bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-5 transition-all duration-300 hover:bg-white/20 hover:border-white/40 hover:scale-[1.02] hover:shadow-2xl"
+                className={`group relative overflow-hidden bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-5 transition-all duration-300 hover:bg-white/20 hover:border-white/40 hover:scale-[1.02] hover:shadow-2xl scroll-reveal ${proLinksVisible ? 'is-visible' : ''}`}
+                style={{ animationDelay: `${0.3 + i * 0.1}s` }}
               >
                 {/* Gradient background au hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${link.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
@@ -147,17 +162,25 @@ export function Carousel3D() {
         </div>
 
         {/* Liens Personnels / Donations */}
-        <div className="space-y-3">
+        <div
+          ref={otherLinksRef}
+          className={`space-y-3 scroll-reveal ${otherLinksVisible ? 'is-visible' : ''}`}
+          style={{ animationDelay: '0.4s' }}
+        >
           <h2 className="text-sm font-semibold text-white/60 uppercase tracking-wider px-2">
             Autres
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {/* Bouton Ajouter Contact */}
+            <AddContactButton isVisible={otherLinksVisible} delay="0.5s" />
+
             {personalLinks.map((link, i) => (
               link.isCrypto ? (
                 <button
                   key={i}
                   onClick={() => handleCopy(link.address, link.title)}
-                  className="group relative overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-4 transition-all duration-300 hover:bg-white/10 hover:border-white/30 hover:scale-105"
+                  className={`group relative overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-4 transition-all duration-300 hover:bg-white/10 hover:border-white/30 hover:scale-105 scroll-reveal ${otherLinksVisible ? 'is-visible' : ''}`}
+                  style={{ animationDelay: `${0.6 + i * 0.1}s` }}
                 >
                   <div className={`absolute inset-0 bg-gradient-to-br ${link.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
 
@@ -180,7 +203,8 @@ export function Carousel3D() {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-4 transition-all duration-300 hover:bg-white/10 hover:border-white/30 hover:scale-105"
+                  className={`group relative overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-4 transition-all duration-300 hover:bg-white/10 hover:border-white/30 hover:scale-105 scroll-reveal ${otherLinksVisible ? 'is-visible' : ''}`}
+                  style={{ animationDelay: `${0.6 + i * 0.1}s` }}
                 >
                   <div className={`absolute inset-0 bg-gradient-to-br ${link.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
 
@@ -199,7 +223,11 @@ export function Carousel3D() {
         </div>
 
         {/* Footer */}
-        <p className="text-center text-white/40 text-sm pt-4">
+        <p
+          ref={footerRef}
+          className={`text-center text-white/40 text-sm pt-4 scroll-reveal ${footerVisible ? 'is-visible' : ''}`}
+          style={{ animationDelay: '0.8s' }}
+        >
           © 2025 Killian Lecrut • Tous droits réservés
         </p>
       </div>

@@ -1,0 +1,22 @@
+{
+  "name": "Killian Lecrut - Développeur Web",
+  "short_name": "KL Contact",
+  "description": "Retrouvez tous les liens professionnels de Killian Lecrut : portfolio, LinkedIn, GitHub et contact.",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#1e293b",
+  "background_color": "#0f172a",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/"
+}

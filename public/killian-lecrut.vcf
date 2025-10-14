@@ -1,0 +1,15 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Killian Lecrut
+N:Lecrut;Killian;;;
+ORG:Agence Killian Lecrut
+TITLE:Développeur Web Full-Stack
+TEL;TYPE=CELL:+33641970383
+EMAIL;TYPE=INTERNET:killian.lecrut@gmail.com
+URL:https://killian-lecrut.com
+URL:https://contact.killian-lecrut.com
+URL:https://www.linkedin.com/in/killian-lecrut-a80336176/
+URL:https://github.com/blernix
+ADR;TYPE=WORK:;;Melun;;77000;;France
+NOTE:Développeur Web Full-Stack spécialisé en React, Next.js et Node.js. Créateur d'expériences digitales innovantes.
+END:VCARD

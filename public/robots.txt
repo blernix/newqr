@@ -1,0 +1,9 @@
+# Robots.txt pour Killian Lecrut - Contact & Liens
+# Ce fichier indique aux moteurs de recherche comment crawler le site
+
+# Règles pour tous les robots
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://contact.killian-lecrut.com/sitemap.xml
