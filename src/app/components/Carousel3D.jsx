@@ -93,9 +93,13 @@ export function Carousel3D() {
         >
           {/* Avatar avec effet glassmorphism */}
           <div className="relative inline-block group">
-            <div className="w-28 h-28 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-purple-600 p-1 shadow-2xl ring-4 ring-white/20 transition-transform duration-300 group-hover:scale-105">
-              <div className="w-full h-full rounded-full bg-white/10 backdrop-blur-xl flex items-center justify-center text-4xl font-bold text-white">
-                KL
+            <div className="w-28 h-28 mx-auto rounded-full   shadow-2xl ring-4 ring-white/20 transition-transform duration-300 group-hover:scale-105">
+              <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center">
+                <img
+                  src="/profil_killian_lecrut.jpg"
+                  alt="Killian Lecrut"
+                  className="w-full h-full rounded-full object-contain"
+                />
               </div>
             </div>
             <div className="absolute -bottom-1 -right-1 w-8 h-8 bg-green-500 rounded-full border-4 border-white/20"></div>
