@@ -11,28 +11,28 @@ const professionalLinks = [
     description: 'Découvrez mes services',
     icon: <Briefcase size={24} />,
     url: 'https://killian-lecrut.com/',
-    color: 'from-blue-500 to-cyan-500'
+    color: 'from-gray-300 to-white'
   },
   {
     title: 'LinkedIn',
     description: 'Mon profil professionnel',
     icon: <Linkedin size={24} />,
     url: 'https://www.linkedin.com/in/killian-lecrut-a80336176/',
-    color: 'from-blue-600 to-blue-700'
+    color: 'from-gray-400 to-gray-300'
   },
   {
     title: 'GitHub',
     description: 'Mes projets open source',
     icon: <Github size={24} />,
     url: 'https://github.com/blernix',
-    color: 'from-gray-700 to-gray-900'
+    color: 'from-gray-500 to-gray-700'
   },
   {
     title: 'Contact',
     description: 'Envoyez-moi un email',
     icon: <Mail size={24} />,
     url: 'mailto:killian.lecrut@gmail.com',
-    color: 'from-purple-500 to-pink-500'
+    color: 'from-gray-300 to-white'
   },
 ];
 
@@ -41,27 +41,27 @@ const personalLinks = [
     title: 'Instagram',
     icon: <Instagram size={20} />,
     url: 'https://www.instagram.com/lct_kiki/',
-    color: 'from-pink-500 to-orange-500'
+    color: 'from-gray-400 to-gray-500'
   },
   {
     title: 'PayPal',
     icon: <Send size={20} />,
     url: 'https://www.paypal.com/paypalme/webcreater',
-    color: 'from-blue-500 to-blue-600'
+    color: 'from-gray-300 to-gray-400'
   },
   {
     title: 'BTC',
     icon: <Bitcoin size={20} />,
     isCrypto: true,
     address: 'bc1qhdj09ms9gehzkrt5vs7cv66k4pakh4l4qdnup0',
-    color: 'from-orange-400 to-yellow-500'
+    color: 'from-gray-400 to-gray-500'
   },
   {
     title: 'ETH',
     icon: <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 417" preserveAspectRatio="xMidYMid" className="fill-current"><path d="M127.961 0l-2.795 9.5v275.668l2.795 2.79 127.962-75.638z M127.962 312.187l-1.586 1.92v92.23l1.586 10.66 127.96-212.32z"/></svg>,
     isCrypto: true,
     address: '0x6957a72016c295081Ae1f5f831889CCa0bF16263',
-    color: 'from-purple-400 to-indigo-500'
+    color: 'from-gray-300 to-gray-500'
   },
 ];
 
@@ -102,7 +102,6 @@ export function Carousel3D() {
                 />
               </div>
             </div>
-            <div className="absolute -bottom-1 -right-1 w-8 h-8 bg-green-500 rounded-full border-4 border-white/20"></div>
           </div>
 
           {/* Nom et Titre */}
