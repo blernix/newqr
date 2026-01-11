@@ -16,13 +16,13 @@ export default function AddContactButton() {
   return (
     <button
       onClick={handleAddContact}
-      className="group bg-white p-6 hover:bg-[#FAFAFA] transition-colors duration-300"
+      className="group bg-[#1A1A1A] p-6 hover:bg-[#1F1F1F] transition-colors duration-300"
     >
       <div className="flex flex-col items-center gap-3">
-        <div className="w-10 h-10 border border-[#E5E5E5] flex items-center justify-center text-[#0066FF] group-hover:border-[#0066FF] transition-colors">
+        <div className="w-10 h-10 border border-[#2A2A2A] flex items-center justify-center text-[#0066FF] group-hover:border-[#0066FF] transition-colors">
           <UserPlus size={20} />
         </div>
-        <span className="text-[#2A2A2A] font-light text-sm text-center">
+        <span className="text-[#FAFAFA] font-light text-sm text-center">
           Contact
         </span>
       </div>

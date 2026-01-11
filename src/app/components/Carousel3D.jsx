@@ -75,9 +75,9 @@ export function Carousel3D() {
   };
 
   return (
-    <div className="w-full min-h-screen flex items-center justify-center p-6 bg-[#FAFAFA]">
+    <div className="w-full min-h-screen flex items-center justify-center p-6 bg-[#0A0A0A]">
       {/* Subtle grid background */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e5e5e5_1px,transparent_1px),linear-gradient(to_bottom,#e5e5e5_1px,transparent_1px)] bg-[size:80px_80px] opacity-20" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1A1A1A_1px,transparent_1px),linear-gradient(to_bottom,#1A1A1A_1px,transparent_1px)] bg-[size:80px_80px] opacity-40" />
 
       {/* Blue accent line */}
       <div className="absolute top-0 left-0 w-full h-[2px] bg-[#0066FF]" />
@@ -86,9 +86,9 @@ export function Carousel3D() {
 
         {/* Header Profile */}
         <div className="text-center space-y-8">
-          {/* Avatar Swiss Clean */}
+          {/* Avatar Swiss Clean Dark */}
           <div className="relative inline-block">
-            <div className="w-32 h-32 mx-auto border-4 border-[#E5E5E5] bg-white p-1 transition-all duration-300 hover:border-[#0066FF]">
+            <div className="w-32 h-32 mx-auto border-4 border-[#2A2A2A] bg-[#1A1A1A] p-1 transition-all duration-300 hover:border-[#0066FF]">
               <img
                 src="/profil-killian.png"
                 alt="Killian Lecrut"
@@ -99,18 +99,18 @@ export function Carousel3D() {
 
           {/* Nom et Titre */}
           <div className="space-y-3">
-            <h1 className="text-5xl md:text-6xl font-light tracking-[-0.02em] text-[#2A2A2A]">
+            <h1 className="text-5xl md:text-6xl font-light tracking-[-0.02em] text-[#FAFAFA]">
               Killian Lecrut
             </h1>
-            <div className="inline-block px-4 py-1 border border-[#E5E5E5] bg-white">
-              <p className="text-sm text-[#666666] uppercase tracking-[0.2em] font-medium">
+            <div className="inline-block px-4 py-1 border border-[#2A2A2A] bg-[#1A1A1A]">
+              <p className="text-sm text-[#999999] uppercase tracking-[0.2em] font-medium">
                 Développeur Web Full-Stack
               </p>
             </div>
           </div>
 
           {/* Bio */}
-          <p className="text-[#666666] max-w-md mx-auto leading-relaxed font-light">
+          <p className="text-[#999999] max-w-md mx-auto leading-relaxed font-light">
             Passionné par le développement web moderne. Spécialisé en React, Next.js et Node.js.
             Créateur d'expériences digitales innovantes.
           </p>
@@ -118,31 +118,31 @@ export function Carousel3D() {
 
         {/* Liens Professionnels */}
         <div className="space-y-6">
-          <div className="inline-block px-4 py-1 border border-[#E5E5E5]">
+          <div className="inline-block px-4 py-1 border border-[#2A2A2A]">
             <h2 className="text-xs font-medium text-[#666666] uppercase tracking-[0.2em]">
               Professionnel
             </h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#E5E5E5]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#2A2A2A]">
             {professionalLinks.map((link, i) => (
               <a
                 key={i}
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group bg-white p-8 hover:bg-[#FAFAFA] transition-colors duration-300"
+                className="group bg-[#1A1A1A] p-8 hover:bg-[#1F1F1F] transition-colors duration-300"
               >
                 <div className="flex items-center gap-4">
-                  <div className="flex-shrink-0 w-12 h-12 border border-[#E5E5E5] flex items-center justify-center group-hover:border-[#0066FF] transition-colors">
+                  <div className="flex-shrink-0 w-12 h-12 border border-[#2A2A2A] flex items-center justify-center group-hover:border-[#0066FF] transition-colors">
                     <div className="text-[#0066FF]">
                       {link.icon}
                     </div>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-[#2A2A2A] font-light text-lg mb-1">
+                    <h3 className="text-[#FAFAFA] font-light text-lg mb-1">
                       {link.title}
                     </h3>
-                    <p className="text-[#666666] text-sm font-light truncate">
+                    <p className="text-[#999999] text-sm font-light truncate">
                       {link.description}
                     </p>
                   </div>
@@ -157,12 +157,12 @@ export function Carousel3D() {
 
         {/* Liens Personnels / Donations */}
         <div className="space-y-6">
-          <div className="inline-block px-4 py-1 border border-[#E5E5E5]">
+          <div className="inline-block px-4 py-1 border border-[#2A2A2A]">
             <h2 className="text-xs font-medium text-[#666666] uppercase tracking-[0.2em]">
               Autres
             </h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-px bg-[#E5E5E5]">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-px bg-[#2A2A2A]">
             {/* Bouton Ajouter Contact */}
             <AddContactButton />
 
@@ -171,16 +171,16 @@ export function Carousel3D() {
                 <button
                   key={i}
                   onClick={() => handleCopy(link.address, link.title)}
-                  className="group bg-white p-6 hover:bg-[#FAFAFA] transition-colors duration-300"
+                  className="group bg-[#1A1A1A] p-6 hover:bg-[#1F1F1F] transition-colors duration-300"
                 >
                   <div className="flex flex-col items-center gap-3">
-                    <div className="w-10 h-10 border border-[#E5E5E5] flex items-center justify-center text-[#0066FF] group-hover:border-[#0066FF] transition-colors">
+                    <div className="w-10 h-10 border border-[#2A2A2A] flex items-center justify-center text-[#0066FF] group-hover:border-[#0066FF] transition-colors">
                       {link.icon}
                     </div>
-                    <span className="text-[#2A2A2A] font-light text-sm">
+                    <span className="text-[#FAFAFA] font-light text-sm">
                       {link.title}
                     </span>
-                    <div className="flex items-center gap-1 text-xs text-[#666666] group-hover:text-[#0066FF] transition-colors">
+                    <div className="flex items-center gap-1 text-xs text-[#999999] group-hover:text-[#0066FF] transition-colors">
                       <Copy size={10} />
                       <span>Copier</span>
                     </div>
@@ -192,13 +192,13 @@ export function Carousel3D() {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group bg-white p-6 hover:bg-[#FAFAFA] transition-colors duration-300"
+                  className="group bg-[#1A1A1A] p-6 hover:bg-[#1F1F1F] transition-colors duration-300"
                 >
                   <div className="flex flex-col items-center gap-3">
-                    <div className="w-10 h-10 border border-[#E5E5E5] flex items-center justify-center text-[#0066FF] group-hover:border-[#0066FF] transition-colors">
+                    <div className="w-10 h-10 border border-[#2A2A2A] flex items-center justify-center text-[#0066FF] group-hover:border-[#0066FF] transition-colors">
                       {link.icon}
                     </div>
-                    <span className="text-[#2A2A2A] font-light text-sm">
+                    <span className="text-[#FAFAFA] font-light text-sm">
                       {link.title}
                     </span>
                   </div>
@@ -209,7 +209,7 @@ export function Carousel3D() {
         </div>
 
         {/* Footer */}
-        <div className="text-center pt-8 border-t border-[#E5E5E5]">
+        <div className="text-center pt-8 border-t border-[#2A2A2A]">
           <p className="text-[#666666] text-sm font-light">
             © 2025 Killian Lecrut • Tous droits réservés
           </p>
