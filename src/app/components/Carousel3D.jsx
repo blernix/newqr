@@ -3,7 +3,6 @@
 import { Briefcase, Instagram, Linkedin, Send, Bitcoin, Copy, Github, Mail } from 'lucide-react';
 import toast from 'react-hot-toast';
 import AddContactButton from './AddContactButton';
-import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const professionalLinks = [
   {
@@ -11,28 +10,24 @@ const professionalLinks = [
     description: 'Découvrez mes services',
     icon: <Briefcase size={24} />,
     url: 'https://killian-lecrut.com/',
-    color: 'from-gray-300 to-white'
   },
   {
     title: 'LinkedIn',
     description: 'Mon profil professionnel',
     icon: <Linkedin size={24} />,
     url: 'https://www.linkedin.com/in/killian-lecrut-a80336176/',
-    color: 'from-gray-400 to-gray-300'
   },
   {
     title: 'GitHub',
     description: 'Mes projets open source',
     icon: <Github size={24} />,
     url: 'https://github.com/blernix',
-    color: 'from-gray-500 to-gray-700'
   },
   {
     title: 'Contact',
     description: 'Envoyez-moi un email',
     icon: <Mail size={24} />,
     url: 'mailto:killian.lecrut@gmail.com',
-    color: 'from-gray-300 to-white'
   },
 ];
 
@@ -41,39 +36,36 @@ const personalLinks = [
     title: 'Instagram',
     icon: <Instagram size={20} />,
     url: 'https://www.instagram.com/lct_kiki/',
-    color: 'from-gray-400 to-gray-500'
   },
   {
     title: 'PayPal',
     icon: <Send size={20} />,
     url: 'https://www.paypal.com/paypalme/webcreater',
-    color: 'from-gray-300 to-gray-400'
   },
   {
     title: 'BTC',
     icon: <Bitcoin size={20} />,
     isCrypto: true,
     address: 'bc1qhdj09ms9gehzkrt5vs7cv66k4pakh4l4qdnup0',
-    color: 'from-gray-400 to-gray-500'
   },
   {
     title: 'ETH',
     icon: <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 417" preserveAspectRatio="xMidYMid" className="fill-current"><path d="M127.961 0l-2.795 9.5v275.668l2.795 2.79 127.962-75.638z M127.962 312.187l-1.586 1.92v92.23l1.586 10.66 127.96-212.32z"/></svg>,
     isCrypto: true,
     address: '0x6957a72016c295081Ae1f5f831889CCa0bF16263',
-    color: 'from-gray-300 to-gray-500'
   },
 ];
 
 export function Carousel3D() {
-  const [headerRef, headerVisible] = useScrollReveal({ threshold: 0.2 });
-  const [proLinksRef, proLinksVisible] = useScrollReveal({ threshold: 0.1 });
-  const [otherLinksRef, otherLinksVisible] = useScrollReveal({ threshold: 0.1 });
-  const [footerRef, footerVisible] = useScrollReveal({ threshold: 0.5 });
-
   const handleCopy = (address, title) => {
     navigator.clipboard.writeText(address).then(() => {
-      toast.success(`Adresse ${title} copiée !`);
+      toast.success(`Adresse ${title} copiée !`, {
+        style: {
+          background: '#0066FF',
+          color: '#FFFFFF',
+          border: '1px solid #0066FF',
+        },
+      });
       if (navigator.vibrate) {
         navigator.vibrate(50);
       }
@@ -83,79 +75,78 @@ export function Carousel3D() {
   };
 
   return (
-    <div className="w-full min-h-screen flex items-center justify-center p-6">
-      <div className="w-full max-w-2xl mx-auto space-y-8">
+    <div className="w-full min-h-screen flex items-center justify-center p-6 bg-[#FAFAFA]">
+      {/* Subtle grid background */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#e5e5e5_1px,transparent_1px),linear-gradient(to_bottom,#e5e5e5_1px,transparent_1px)] bg-[size:80px_80px] opacity-20" />
+
+      {/* Blue accent line */}
+      <div className="absolute top-0 left-0 w-full h-[2px] bg-[#0066FF]" />
+
+      <div className="relative z-10 w-full max-w-2xl mx-auto space-y-12">
 
         {/* Header Profile */}
-        <div
-          ref={headerRef}
-          className={`text-center space-y-4 scroll-reveal-scale ${headerVisible ? 'is-visible' : ''}`}
-        >
-          {/* Avatar avec effet glassmorphism */}
-          <div className="relative inline-block group">
-            <div className="w-28 h-28 mx-auto rounded-full   shadow-2xl ring-4 ring-white/20 transition-transform duration-300 group-hover:scale-105">
-              <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center">
-                <img
-                  src="/profil_killian_lecrut.jpg"
-                  alt="Killian Lecrut"
-                  className="w-full h-full rounded-full object-contain"
-                />
-              </div>
+        <div className="text-center space-y-8">
+          {/* Avatar Swiss Clean */}
+          <div className="relative inline-block">
+            <div className="w-32 h-32 mx-auto border-4 border-[#E5E5E5] bg-white p-1 transition-all duration-300 hover:border-[#0066FF]">
+              <img
+                src="/profil-killian.png"
+                alt="Killian Lecrut"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
 
           {/* Nom et Titre */}
-          <div>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-2 tracking-tight">
+          <div className="space-y-3">
+            <h1 className="text-5xl md:text-6xl font-light tracking-[-0.02em] text-[#2A2A2A]">
               Killian Lecrut
             </h1>
-            <p className="text-lg md:text-xl text-white/80 font-medium">
-              Développeur Web Full-Stack
-            </p>
+            <div className="inline-block px-4 py-1 border border-[#E5E5E5] bg-white">
+              <p className="text-sm text-[#666666] uppercase tracking-[0.2em] font-medium">
+                Développeur Web Full-Stack
+              </p>
+            </div>
           </div>
 
           {/* Bio */}
-          <p className="text-white/70 max-w-md mx-auto leading-relaxed">
+          <p className="text-[#666666] max-w-md mx-auto leading-relaxed font-light">
             Passionné par le développement web moderne. Spécialisé en React, Next.js et Node.js.
             Créateur d'expériences digitales innovantes.
           </p>
         </div>
 
         {/* Liens Professionnels */}
-        <div
-          ref={proLinksRef}
-          className={`space-y-3 scroll-reveal ${proLinksVisible ? 'is-visible' : ''}`}
-          style={{ animationDelay: '0.2s' }}
-        >
-          <h2 className="text-sm font-semibold text-white/60 uppercase tracking-wider px-2">
-            Professionnel
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <div className="space-y-6">
+          <div className="inline-block px-4 py-1 border border-[#E5E5E5]">
+            <h2 className="text-xs font-medium text-[#666666] uppercase tracking-[0.2em]">
+              Professionnel
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#E5E5E5]">
             {professionalLinks.map((link, i) => (
               <a
                 key={i}
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`group relative overflow-hidden bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-5 transition-all duration-300 hover:bg-white/20 hover:border-white/40 hover:scale-[1.02] hover:shadow-2xl scroll-reveal ${proLinksVisible ? 'is-visible' : ''}`}
-                style={{ animationDelay: `${0.3 + i * 0.1}s` }}
+                className="group bg-white p-8 hover:bg-[#FAFAFA] transition-colors duration-300"
               >
-                {/* Gradient background au hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${link.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
-
-                <div className="relative flex items-center gap-4">
-                  <div className={`flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br ${link.color} flex items-center justify-center text-white shadow-lg transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3`}>
-                    {link.icon}
+                <div className="flex items-center gap-4">
+                  <div className="flex-shrink-0 w-12 h-12 border border-[#E5E5E5] flex items-center justify-center group-hover:border-[#0066FF] transition-colors">
+                    <div className="text-[#0066FF]">
+                      {link.icon}
+                    </div>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-white font-semibold text-lg mb-0.5 group-hover:translate-x-1 transition-transform duration-300">
+                    <h3 className="text-[#2A2A2A] font-light text-lg mb-1">
                       {link.title}
                     </h3>
-                    <p className="text-white/60 text-sm truncate">
+                    <p className="text-[#666666] text-sm font-light truncate">
                       {link.description}
                     </p>
                   </div>
-                  <svg className="w-5 h-5 text-white/40 group-hover:text-white/80 group-hover:translate-x-1 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg className="w-5 h-5 text-[#0066FF] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </div>
@@ -165,36 +156,31 @@ export function Carousel3D() {
         </div>
 
         {/* Liens Personnels / Donations */}
-        <div
-          ref={otherLinksRef}
-          className={`space-y-3 scroll-reveal ${otherLinksVisible ? 'is-visible' : ''}`}
-          style={{ animationDelay: '0.4s' }}
-        >
-          <h2 className="text-sm font-semibold text-white/60 uppercase tracking-wider px-2">
-            Autres
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="space-y-6">
+          <div className="inline-block px-4 py-1 border border-[#E5E5E5]">
+            <h2 className="text-xs font-medium text-[#666666] uppercase tracking-[0.2em]">
+              Autres
+            </h2>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-px bg-[#E5E5E5]">
             {/* Bouton Ajouter Contact */}
-            <AddContactButton isVisible={otherLinksVisible} delay="0.5s" />
+            <AddContactButton />
 
             {personalLinks.map((link, i) => (
               link.isCrypto ? (
                 <button
                   key={i}
                   onClick={() => handleCopy(link.address, link.title)}
-                  className={`group relative overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-4 transition-all duration-300 hover:bg-white/10 hover:border-white/30 hover:scale-105 scroll-reveal ${otherLinksVisible ? 'is-visible' : ''}`}
-                  style={{ animationDelay: `${0.6 + i * 0.1}s` }}
+                  className="group bg-white p-6 hover:bg-[#FAFAFA] transition-colors duration-300"
                 >
-                  <div className={`absolute inset-0 bg-gradient-to-br ${link.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
-
-                  <div className="relative flex flex-col items-center gap-2">
-                    <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${link.color} flex items-center justify-center text-white shadow-lg transition-transform duration-300 group-hover:scale-110`}>
+                  <div className="flex flex-col items-center gap-3">
+                    <div className="w-10 h-10 border border-[#E5E5E5] flex items-center justify-center text-[#0066FF] group-hover:border-[#0066FF] transition-colors">
                       {link.icon}
                     </div>
-                    <span className="text-white font-medium text-sm">
+                    <span className="text-[#2A2A2A] font-light text-sm">
                       {link.title}
                     </span>
-                    <div className="flex items-center gap-1 text-xs text-white/50 group-hover:text-white/80 transition-colors">
+                    <div className="flex items-center gap-1 text-xs text-[#666666] group-hover:text-[#0066FF] transition-colors">
                       <Copy size={10} />
                       <span>Copier</span>
                     </div>
@@ -206,16 +192,13 @@ export function Carousel3D() {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group relative overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-4 transition-all duration-300 hover:bg-white/10 hover:border-white/30 hover:scale-105 scroll-reveal ${otherLinksVisible ? 'is-visible' : ''}`}
-                  style={{ animationDelay: `${0.6 + i * 0.1}s` }}
+                  className="group bg-white p-6 hover:bg-[#FAFAFA] transition-colors duration-300"
                 >
-                  <div className={`absolute inset-0 bg-gradient-to-br ${link.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
-
-                  <div className="relative flex flex-col items-center gap-2">
-                    <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${link.color} flex items-center justify-center text-white shadow-lg transition-transform duration-300 group-hover:scale-110`}>
+                  <div className="flex flex-col items-center gap-3">
+                    <div className="w-10 h-10 border border-[#E5E5E5] flex items-center justify-center text-[#0066FF] group-hover:border-[#0066FF] transition-colors">
                       {link.icon}
                     </div>
-                    <span className="text-white font-medium text-sm">
+                    <span className="text-[#2A2A2A] font-light text-sm">
                       {link.title}
                     </span>
                   </div>
@@ -226,13 +209,11 @@ export function Carousel3D() {
         </div>
 
         {/* Footer */}
-        <p
-          ref={footerRef}
-          className={`text-center text-white/40 text-sm pt-4 scroll-reveal ${footerVisible ? 'is-visible' : ''}`}
-          style={{ animationDelay: '0.8s' }}
-        >
-          © 2025 Killian Lecrut • Tous droits réservés
-        </p>
+        <div className="text-center pt-8 border-t border-[#E5E5E5]">
+          <p className="text-[#666666] text-sm font-light">
+            © 2025 Killian Lecrut • Tous droits réservés
+          </p>
+        </div>
       </div>
     </div>
   );

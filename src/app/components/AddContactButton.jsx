@@ -2,7 +2,7 @@
 
 import { UserPlus } from 'lucide-react';
 
-export default function AddContactButton({ isVisible, delay }) {
+export default function AddContactButton() {
   const handleAddContact = () => {
     // Le fichier .vcf fonctionne sur iOS et Android
     const link = document.createElement('a');
@@ -16,16 +16,13 @@ export default function AddContactButton({ isVisible, delay }) {
   return (
     <button
       onClick={handleAddContact}
-      className={`group relative overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl p-4 transition-all duration-300 hover:bg-white/10 hover:border-white/30 hover:scale-105 scroll-reveal ${isVisible ? 'is-visible' : ''}`}
-      style={{ animationDelay: delay }}
+      className="group bg-white p-6 hover:bg-[#FAFAFA] transition-colors duration-300"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-400 to-gray-500 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-
-      <div className="relative flex flex-col items-center gap-2">
-        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-gray-400 to-gray-500 flex items-center justify-center text-white shadow-lg transition-transform duration-300 group-hover:scale-110">
+      <div className="flex flex-col items-center gap-3">
+        <div className="w-10 h-10 border border-[#E5E5E5] flex items-center justify-center text-[#0066FF] group-hover:border-[#0066FF] transition-colors">
           <UserPlus size={20} />
         </div>
-        <span className="text-white font-medium text-sm text-center">
+        <span className="text-[#2A2A2A] font-light text-sm text-center">
           Contact
         </span>
       </div>
