@@ -1,6 +1,6 @@
 "use client";
 
-import { Briefcase, Instagram, Linkedin, Send, Bitcoin, Copy, Github, Mail } from 'lucide-react';
+import { Briefcase, Instagram, Linkedin, Send, Bitcoin, Copy, Github, Mail, CreditCard } from 'lucide-react';
 import toast from 'react-hot-toast';
 import AddContactButton from './AddContactButton';
 
@@ -41,6 +41,11 @@ const personalLinks = [
     title: 'PayPal',
     icon: <Send size={20} />,
     url: 'https://www.paypal.com/paypalme/webcreater',
+  },
+  {
+    title: 'Stripe',
+    icon: <CreditCard size={20} />,
+    url: 'https://buy.stripe.com/3cI9ATcwL8pEeskbUE2sM02',
   },
   {
     title: 'BTC',
@@ -162,7 +167,7 @@ export function Carousel3D() {
               Autres
             </h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-px bg-[#2A2A2A]">
+           <div className="grid grid-cols-2 md:grid-cols-6 gap-px bg-[#2A2A2A]">
             {/* Bouton Ajouter Contact */}
             <AddContactButton />
 
